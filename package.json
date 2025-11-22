@@ -4,7 +4,10 @@
   "description": "Just a personal project to practice what I'm learning in the curso.dev course and improve my dev skills.",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run service:up && next dev",
+    "service:up": "docker compose -f infra/compose.yml up -d",
+    "service:down": "docker compose -f infra/compose.yml down",
+    "service:stop": "docker compose -f infra/compose.yml stop",
     "lint:check": "prettier --check .",
     "lint:fix": "prettier --write .",
     "test": "jest",
